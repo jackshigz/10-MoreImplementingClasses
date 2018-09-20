@@ -529,6 +529,7 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+
         # --------------------------------------------------------------
         # TODO: 9.
         #   a. READ the above specification, including the Example.
