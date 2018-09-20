@@ -219,7 +219,7 @@ class Line(object):
         """
         self.start = start.clone()
         self.end = end.clone()
-
+        self.rem = 0
 
         # --------------------------------------------------------------
         # TODO: 3.
@@ -330,6 +330,7 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        self.rem = self.rem + 1
         return Line(self.start,self.end)
         # --------------------------------------------------------------
         # DONE: 4.
@@ -415,7 +416,7 @@ class Line(object):
         return slope
 
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -447,8 +448,14 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        point1 = self.start
+        point2 = self.end
+        dx = point2.x - point1.x
+        dy = point2.y - point1.y
+        length = math.sqrt(dx**2 + dy**2)
+        return length
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -487,8 +494,9 @@ class Line(object):
         Type hints:
           :rtype: int:
         """
+        return self.rem
         # --------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
