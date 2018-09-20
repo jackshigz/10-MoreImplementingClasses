@@ -3,8 +3,8 @@ A simple   Line   class.
 NOTE: This is NOT rosegraphics -- it is your OWN Line class.
 
 Authors: David Mutchler, Vibha Alangar, Dave Fisher, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Haoran Shi.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import m1t_test_Line as m1t
@@ -15,7 +15,7 @@ import m1t_test_Line as m1t
 ########################################################################
 
 # ----------------------------------------------------------------------
-# TODO: 2. With your instructor, READ THE INSTRUCTIONS
+# DONE: 2. With your instructor, READ THE INSTRUCTIONS
 #   in file  m0_INSTRUCTIONS.txt, asking questions as needed.
 #   Once you understand the instructions, mark this TO DO as DONE.
 #
@@ -38,6 +38,7 @@ def main():
     a  TEST   function will not be called until you begin work
     on the code that it is testing.
     """
+
     if m1t.is_implemented('__init__'):
         run_test_init()
     if m1t.is_implemented('clone'):
@@ -216,6 +217,10 @@ class Line(object):
           :type start: Point
           :type end:   Point
         """
+        self.start = start.clone()
+        self.end = end.clone()
+
+
         # --------------------------------------------------------------
         # TODO: 3.
         #   a. READ the above specification, including the Example.
@@ -325,8 +330,9 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        return Line(self.start,self.end)
         # --------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -358,8 +364,12 @@ class Line(object):
             line1.reverse()
             print(line1 == line2)    # Should now print: True
         """
+        point1 = self.start
+        point2 = self.end
+        self.start = point2
+        self.end = point1
         # --------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -394,6 +404,16 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        point1 = self.start
+        point2 = self.end
+        dx = point2.x - point1.x
+        dy = point2.y - point1.y
+        if dx == 0:
+            slope = math.inf
+        else:
+            slope = dy/dx
+        return slope
+
         # --------------------------------------------------------------
         # TODO: 6.
         #   a. READ the above specification, including the Example.
